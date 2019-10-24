@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view></router-view>
-    <Tabbar></Tabbar>
+    <Tabbar v-show="isShow"></Tabbar>
 
   </div>
 </template>
@@ -12,12 +12,13 @@
 import Vue from 'vue'
 import axios from 'axios'
 import Tabbar from '@/components/tabbar'
+import bus from '@/bus'
 
 export default {
   data () {
     return {
       title: '111111',
-      isShow: false
+      isShow: true
     }
   },
 
@@ -28,6 +29,11 @@ export default {
   },
   components:{
     Tabbar
+  },
+  beforeMount(){
+    bus.$on("kerwei",(data) =>{
+      this.isShow = data;
+    })
   },
   mounted(){
 
