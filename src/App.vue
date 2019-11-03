@@ -1,7 +1,9 @@
 <template>
   <div>
     <router-view></router-view>
-    <Tabbar v-show="isShow"></Tabbar>
+    <!--<Tabbar v-show="computeShow"></Tabbar>-->
+
+    <Tabbar v-show="isTab"></Tabbar>
 
   </div>
 </template>
@@ -13,7 +15,13 @@ import Vue from 'vue'
 import axios from 'axios'
 import Tabbar from '@/components/tabbar'
 import bus from '@/bus'
+import {mapState} from 'vuex'
 
+import obj from '@/module/moduleA' //导入的第一种写法
+import {bbState} from '@/module/moduleB' //导入的第二种写法
+
+//console.log(obj,'22');
+console.log(bbState,'==bbState');
 export default {
   data () {
     return {
@@ -26,6 +34,19 @@ export default {
     handleClick () {
       this.title = '22222222'
     }
+  },
+  //计算属性第一种写法
+//  computed:{
+//    computeShow(){
+//      return this.$store.state.isTab
+//    }
+//  },
+  //计算属性第2种写法  基本没人用 因为会覆盖computed
+//  computed:mapState(["isTab"]),
+
+  //第三种
+  computed:{
+    ...mapState(["isTab"])
   },
   components:{
     Tabbar

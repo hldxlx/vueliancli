@@ -34,7 +34,8 @@ export default {
     }
   },
   mounted(){
-    bus.$emit("kerwei",false);
+//    bus.$emit("kerwei",false);
+    this.$store.commit("turn",false)
 
     this.cinemaHeight = document.documentElement.clientHeight-50+'px';
     //获取动态路由的参数
@@ -97,7 +98,8 @@ export default {
     window.onscroll = this.handle;
   },
   beforeDestroy(){
-    bus.$emit("kerwei",true);
+//    bus.$emit("kerwei",true);
+    this.$store.commit("turn",true)
   },
   methods:{
     handle(){

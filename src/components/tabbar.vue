@@ -26,12 +26,36 @@
 
 <script type="text/javascript">
   import "@/assets/iconfont/iconfont.css"
-export default {
+
+  export default {
   data () {
     return {
 
     }
+
   }
+  ,mounted(){
+      class Box{
+        constructor(){
+          this.b = 11;
+        }
+        play(){
+
+        }
+        a=10;
+      }
+      // class Ball extends Box{
+      // 	constructor(){
+      // 		super();
+      // 	}
+      // }
+
+
+
+      var bo = new Box();
+      console.log(bo,'===666')
+    }
+
 }
 </script>
 <style lang="scss" scoped>
